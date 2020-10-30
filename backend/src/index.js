@@ -17,7 +17,7 @@ let broadcaster;
 io.sockets.on("connection", (socket) => {
   socket.on("broadcaster", () => {
     broadcaster = socket.id;
-    socket.broadcast.emit("broadcaster");
+    socket.broadcast.emit("watcher");
   });
   socket.on("watcher", () => {
     socket.to(broadcaster).emit("watcher", socket.id);
